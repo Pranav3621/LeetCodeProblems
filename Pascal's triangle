@@ -1,28 +1,34 @@
 class Solution {
     public List<List<Integer>> generate(int numRows) {
+
+        //Initializing 2D arraylist for creating pascal's triangle
         List<List<Integer>> triangle = new ArrayList<>();
 
-        triangle.add(new ArrayList<>());
-        triangle.get(0).add(1);
+        //For traversing and assigning each row to triangle 2D arraylist
+        for(int rowNum = 0; rowNum < numRows; rowNum++){
 
-        for(int rowNum = 1; rowNum < numRows; rowNum++){
-            List<Integer> prevRow = triangle.get(rowNum - 1);
-            List<Integer> currRow = new ArrayList<>();
+            //Initializing a row list to be assigned to triangle at the end
+            List<Integer> row = new ArrayList<>();
 
-            currRow.add(1);
+            //First element in always 1
+            row.add(1);
 
-            int j = 1;
-            while(j <= rowNum - 1){
-                int val = prevRow.get(j-1) + prevRow.get(j);
-                currRow.add(val);
-                j++;
+            //For assigning middle elements from 1 to rowNum-1
+            for(int j=1;j<rowNum;j++){
+                int val = triangle.get(rowNum - 1).get(j-1) + triangle.get(rowNum - 1).get(j);
+                row.add(val);
             }
-            
-            currRow.add(1);
 
-            triangle.add(currRow);
+            //Except for the first row, every row has one more 1 at the end
+            if(rowNum>0){
+                row.add(1);
+            }
+
+            //Finally assigning the row to the triangle 2D arraylist
+            triangle.add(row);
         }
 
+        //Returning the triangle 2D arraylist
         return triangle;
     }
 }
