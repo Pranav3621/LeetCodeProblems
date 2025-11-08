@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+
+public class StartWithA {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		List<String> names = new ArrayList<String>();
+		names.add("Adobe");
+		names.add("Netflix");
+		names.add("Alternative Path");
+		names.add("Google");
+		names.add("Amazon");
+		names.add("Canoe");
+		
+		int count=0;
+		
+		for(String name : names) {
+			if(name.startsWith("A")) {
+				count++;
+			}
+		}
+		
+		System.out.println(count);
+		
+		long count1 = Stream.of("Adobe","Netflix","Alternative Path","Google","Amazon","Canoe").filter(name -> name.startsWith("A")).count();
+		System.out.println(count1);
+	}
+
+}
