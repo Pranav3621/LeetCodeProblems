@@ -1,0 +1,29 @@
+
+public class CheckPalindrome {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String name = "RaceCar";
+		System.out.println("The name " + name + " is  Palindrome : " + checkPalindrome(name));
+		String name2 = "Smarto";
+		System.out.println("The name " + name2 + " is  Palindrome : " + checkPalindrome(name2));
+	}
+	
+	public static boolean checkPalindrome(String name) {
+		name = name.replaceAll("\\s+", "").toLowerCase();
+		int i = 0;
+		int j = name.length()-1;
+		
+		while(i<j) {
+			if(name.charAt(i)==name.charAt(j)) {
+				i++;
+				j--;
+			}
+			else {
+				return false;
+			}
+		}
+		return true;
+	}
+
+}
