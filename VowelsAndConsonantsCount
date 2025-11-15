@@ -1,0 +1,28 @@
+public class VowelsAndConsonants {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String name = "interview 2025";
+		printVowelsAndConsonantsCount(name);
+	}
+	
+	public static void printVowelsAndConsonantsCount(String name) {
+		int vowels = 0, consonants = 0;
+		name = name.toLowerCase();
+		
+		for(char ch: name.toCharArray()) {
+			if(Character.isLetter(ch)) {
+				if("aeiou".indexOf(ch)!=-1) {
+					vowels++;
+				}
+				else {
+					consonants++;
+				}
+			}
+		}
+		
+		System.out.println(vowels);
+		System.out.println(consonants);
+	}
+
+}
